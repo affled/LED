@@ -1,0 +1,34 @@
+lass Chocolate:
+    def __init__(self, name: str, weight: float, cocoa_percentage: float, price: float):
+        """
+        Конструктор класса Chocolate.
+        
+        :param name: Название батончика
+        :param weight: Вес в граммах
+        :param cocoa_percentage: Процент содержания какао
+        :param price: Цена в рублях (или другой валюте)
+        """
+        self.name = name
+        self.weight = weight
+        self.cocoa_percentage = cocoa_percentage
+        self.price = price
+    
+    def __str__(self) -> str:
+        """Возвращает строковое представление батончика."""
+        return (f"Шоколадный батончик '{self.name}':\n"
+                f"  Вес: {self.weight} г\n"
+                f"  Какао: {self.cocoa_percentage}%\n"
+                f"  Цена: {self.price} руб.")
+    
+    def get_price_per_100g(self) -> float:
+        """Возвращает цену за 100 грамм продукта."""
+        return (self.price / self.weight) * 100
+    
+    def is_dark_chocolate(self, threshold: float = 50.0) -> bool:
+        """
+        Проверяет, является ли шоколад тёмным.
+        
+        :param threshold: Пороговое значение процента какао (по умолчанию 50%)
+        :return: True, если процент какао выше порога
+        """
+        return self.cocoa_percentage >= threshold
